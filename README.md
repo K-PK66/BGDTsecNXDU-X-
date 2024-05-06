@@ -61,7 +61,7 @@ else{
 ## 实验结果
 
 ## 验收
-<img src="XP1-SS.png"></img>
+<img src="XP1-ASS.png"></img>
 
 
 # 实验2 属性基访问控制实验
