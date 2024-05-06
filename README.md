@@ -9,6 +9,8 @@
 **对称加密**指的是加解密使用同样密钥的加密方式。其中，DES加密算法于1977年由美国NSA根据IBM的专利技术Lucifer所制定；明文被分成64位的块，对每个块进行19次变换（替代和换位），其中16次变换由56位的秘钥的不同排列形式控制（IBM使用128位的秘钥），最后产生64位的密文块。后来基于DES设计出了改进算法三重DES（Triple-DES）。不过AES加密法已将DES替代，目前成为了对称加密算法中最为流行的之一。AES算法采用对称分组密码体制，密码的长度最少支持为128、192、256，分组长度128位，有很多轮重复和变换。
 
 Javascript语言中拥有名为`CryptoJS`的库，可以支持包括AES和DES在内的大量对称加密算法。以`CryptoJS.AES`为例，对加密`CryptoJS.AES.encrypt`和解密`CryptoJS.AES.decrypt`有value（待加/解密字符串）、key（密钥）、iv（密钥偏移量）、mode（加密模式，默认为CBC，还可以是CFB、CTR、OFB、ECB）、pad（填充模式，默认为Pkcs7，还可以是AnsiX923、Iso10126、Iso97971、ZeroPadding、NoPadding）和encoding（编码格式，如Hex、Latin1、Utf8、Utf16、Base64）。其中，encoding可以将编码格式与WordArray对象互相转换。
+
+`CryptoJS`库的其他属性在本次实验中并不关键，不再罗列。该库的其他介绍可参考[此链接](https://cryptojs.gitbook.io/docs)。
 ## 实验操作
 由于本人自身的设备上没有javascript的加密库，因此本次实验的代码托管给了RunKit并在该平台上运行。在本次实验中，本人选择AES加密算法和CryptoJS默认的电子密码本模式（ECB）对字符串进行加密和解密；由于线上平台没有办法使用人机交互功能（例如引导使用者通过终端输入内容并根据该内容进行加/解密），在代码中插入了一段随机生成字符串的函数`generateRandomString`来保证此算法的普适性——这一函数可以根据给定数值随机生成长度等于该数值的字符串；本程式利用此函数可以确保密钥和待加密文本的随机性。
 
