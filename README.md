@@ -121,12 +121,11 @@ cd FABEO && python samples/run_cp_schemes.py
 - 采用**任一保序加密算法**进行加密；
 - 在一维密文的基础上进行**范围查询**。
 ## 实验原理
+
 ## 实验操作
 ```kotlin
 import kotlin.random.Random
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 private fun distractionGenerator(a:Int):Int{
     return Random.nextInt(0, a-1)
 }
