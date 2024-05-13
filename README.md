@@ -123,11 +123,12 @@ cd FABEO && python samples/run_cp_schemes.py
 ## 实验原理
 
 ## 实验操作
+通过本机上的JetBrains IntelliJ IDEA Ultimate编写kotlin语言代码（文件后缀名为`.kt`）如下所示。随后编译并运行该脚本，观察实验结果。
+
+为了方便观察，代码中在一些关键步骤中添加了短暂停滞（`Thread.sleep`）；按照预期，代码运行后将会在终端引导我们输入加密系数、偏移量和代加密数串，之后分步输出各步骤的处理结果。
 ```kotlin
 import kotlin.random.Random
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 private fun distractionGenerator(a: Int): Int {
     return Random.nextInt(0, a - 1)
 }
@@ -215,4 +216,19 @@ private fun main() {
     )
 }
 ```
-# 实验4 大数据隐私保护实验
+## 实验结果
+为提高观感，这里以加密参数`10`、加密偏移量`4`为例对数串`2002060620079100001`进行加密并进行详细说明。
+
+在输入这些参数后，程式先返回了输入的数串作为确认，随后告知第一步已经开始进行。
+<img src="XP3-ARS1.png"></img>
+
+第一步的主要目的是对这些数据进行正向（由小到大）排序。这时程式返回阶段性结果如下，显然符合预期。随后，程式告知流程已进入第二步。
+<img src="XP3-ARS2.png"></img>
+
+第二步的主要功能是对完成排序的这些数据进行“加密”处理。在完成第二步后，程式将返回完成处理的数串，此时进入第三步搜索阶段，程式引导用户输入需要检索的数字，随后开始查找。
+<img src="XP3-ARS3.png"></img>
+
+输入数字`6`，可以看到程式立刻返回搜索完成的结果。可以看到，发现的数字`6`在处理后的数串中对应的一个值是`64`；对`64`进行解密，得到的结果仍然是`6`。换言之，查询和加解密过程均正确。
+<img src="XP3-ARS4.png"></img>
+
+## 实验验收
