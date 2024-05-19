@@ -165,6 +165,8 @@ $a-1$
 ```kotlin
 import kotlin.random.Random
 
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 private fun distractionGenerator(a: Int): Int {
     return Random.nextInt(0, a - 1)
 }
@@ -192,11 +194,11 @@ private fun find(x: Int, referenceSheet: IntArray, l: Int, r: Int, coefficientFo
     if (l > r) {
         return -1
     }
-    if (acceptableGap(referenceSheet[mid], x, coefficientForEncrypt) == 0) {
-        return mid
+    return if (acceptableGap(referenceSheet[mid], x, coefficientForEncrypt) == 0) {
+        mid
     } else if (acceptableGap(referenceSheet[mid], x, coefficientForEncrypt) == -1) {
-        return find(x, referenceSheet, mid + 1, r, coefficientForEncrypt)
-    } else return find(x, referenceSheet, l, mid - 1, coefficientForEncrypt)
+        find(x, referenceSheet, mid + 1, r, coefficientForEncrypt)
+    } else find(x, referenceSheet, l, mid - 1, coefficientForEncrypt)
 }
 
 private fun main() {
