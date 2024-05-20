@@ -270,3 +270,5 @@ private fun main() {
 <img src="XP3-ARS4.png"></img>
 
 ## 实验验收
+本次实验是通过腾讯会议验收的。
+<img src = "XP3-ASS.png"></img>
